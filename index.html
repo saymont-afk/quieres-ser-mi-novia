@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pregunta Importante ❤️</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #ffdde1;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    h1 {
+      color: #d10052;
+      margin-bottom: 40px;
+    }
+
+    .btn {
+      padding: 15px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 10px;
+      transition: all .2s ease;
+    }
+
+    #yesBtn {
+      background: #ff3c78;
+      color: white;
+    }
+
+    #noBtn {
+      background: #444;
+      color: white;
+      position: absolute;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>¿Quieres ser mi novia? ❤️</h1>
+
+  <button class="btn" id="yesBtn">Sí 😳</button>
+  <button class="btn" id="noBtn">No 💀</button>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+
+    // Cuando el mouse pase sobre NO, se mueve
+    noBtn.addEventListener("mouseover", () => {
+      const x = Math.random() * (window.innerWidth - 100);
+      const y = Math.random() * (window.innerHeight - 100);
+
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+
+      // Se hace más chico
+      const currentSize = parseFloat(window.getComputedStyle(noBtn).fontSize);
+      noBtn.style.fontSize = (currentSize * 0.85) + "px";
+    });
+
+    // Cada que NO se mueve, el SÍ se hace más grande
+    noBtn.addEventListener("mouseover", () => {
+      const currentSize = parseFloat(window.getComputedStyle(yesBtn).fontSize);
+      yesBtn.style.fontSize = (currentSize * 1.15) + "px";
+      yesBtn.style.padding = "20px 30px";
+    });
+
+    // Mensaje cuando presiona SÍ
+    yesBtn.addEventListener("click", () => {
+      document.body.innerHTML = "<h1>Sabía que dirías que sí 😎❤️</h1>";
+    });
+  </script>
+
+</body>
+</html>
+
